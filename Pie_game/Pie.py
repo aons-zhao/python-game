@@ -1,3 +1,4 @@
+import sys
 import pygame
 from pygame.locals import *
 
@@ -9,7 +10,10 @@ blue = 0, 0, 255
 
 myfont = pygame.font.Font(None, 60)  # 创建一个字体对象，None默认为pygame的字体
 textImage = myfont.render("hello Pygame", True, white)
-
-screen.fill(blue)
-screen.blit(textImage, (100, 100))
-pygame.display.update()
+while True:
+    for event in pygame.event.get():
+        if event.type in (QUIT, KEYDOWN):
+            sys.exit()
+    screen.fill(blue)
+    screen.blit(textImage, (100, 100))
+    pygame.display.update()
